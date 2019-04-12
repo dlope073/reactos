@@ -27,6 +27,7 @@
 #define IDB_TRAYICON                  153
 #define IDD_DEBUG_CHANNELS_DIALOG     155
 #define IDC_DEBUG_CHANNELS_LIST       156
+#define IDD_STARTUP_PAGE			  157
 
 #define IDC_ENDTASK                      1012
 #define IDC_SWITCHTO                     1013
@@ -120,6 +121,8 @@
 #define IDC_MEM_USAGE_HISTORY_GRAPH      1049
 #define IDC_CPU_USAGE_HISTORY_GRAPH      1050
 #define IDC_CPU31                        1051
+#define IDC_STARTUP_LIST			     1052
+#define IDC_STARTUPLIST                  1053
 
 #define IDS_TOTALS_HANDLE_COUNT          1060
 #define IDS_TOTALS_THREAD_COUNT          1061
@@ -224,6 +227,7 @@
 #define IDS_TAB_IOWRITESBYTES 338
 #define IDS_TAB_IOOTHERBYTES  339
 #define IDS_TAB_COMMANDLINE   368
+#define IDS_TAB_STARTUP	      370
 
 #define IDS_MENU_SELECTCOLUMNS   340
 #define IDS_MENU_16BITTASK       341

@@ -15,6 +15,7 @@ list(APPEND SOURCE
     priority.c
     proclist.c
     procpage.c
+    startuppage.c
     run.c
     shutdown.c
     taskmgr.c

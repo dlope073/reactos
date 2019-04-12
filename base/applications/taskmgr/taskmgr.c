@@ -28,6 +28,7 @@
 #include "affinity.h"
 #include "debug.h"
 #include "priority.h"
+#include "startuppage.h"
 
 #define STATUS_WINDOW   2001
 
@@ -620,10 +621,12 @@ BOOL OnCreate(HWND hWnd)
     hApplicationPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_APPLICATION_PAGE), hWnd, ApplicationPageWndProc); EnableDialogTheme(hApplicationPage);
     hProcessPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_PROCESS_PAGE), hWnd, ProcessPageWndProc); EnableDialogTheme(hProcessPage);
     hPerformancePage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_PERFORMANCE_PAGE), hWnd, PerformancePageWndProc); EnableDialogTheme(hPerformancePage);
+	hStartupPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_STARTUP_PAGE), hWnd, StartupPageWndProc); EnableDialogTheme(hStartupPage);
 #else
     hApplicationPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_APPLICATION_PAGE), hTabWnd, ApplicationPageWndProc); EnableDialogTheme(hApplicationPage);
     hProcessPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_PROCESS_PAGE), hTabWnd, ProcessPageWndProc); EnableDialogTheme(hProcessPage);
     hPerformancePage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_PERFORMANCE_PAGE), hTabWnd, PerformancePageWndProc); EnableDialogTheme(hPerformancePage);
+	hStartupPage = CreateDialogW(hInst, MAKEINTRESOURCEW(IDD_STARTUP_PAGE), hWnd, StartupPageWndProc); EnableDialogTheme(hStartupPage);
 #endif
 
     /* Insert tabs */
@@ -642,6 +645,11 @@ BOOL OnCreate(HWND hWnd)
     item.mask = TCIF_TEXT;
     item.pszText = szTemp;
     (void)TabCtrl_InsertItem(hTabWnd, 2, &item);
+	LoadStringW(hInst, IDS_TAB_STARTUP, szTemp, 256);
+	memset(&item, 0, sizeof(TCITEM));
+	item.mask = TCIF_TEXT;
+	item.pszText = szTemp;
+	(void)TabCtrl_InsertItem(hTabWnd, 2, &item);
 
     /* Size everything correctly */
     GetClientRect(hWnd, &rc);
